@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamShield AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2 class="brand">🛡 ScamShield <span>AI</span></h2>
+
+            <p class="menu-title">MAIN MENU</p>
+
+            <a class="nav active" href="#dashboard" data-page="dashboard">▦ Dashboard</a>
+            <a class="nav" href="#phone-checker" data-page="phone-checker">☎ Phone Checker</a>
+            <a class="nav" href="#url-scanner" data-page="url-scanner">↗ URL Scanner</a>
+            <a class="nav" href="#reports" data-page="reports">▤ Reports</a>
+
+            <div class="sidebar-bottom">
+                AI-Powered Multi-Modal<br>
+                Scam Detection
+            </div>
+        </aside>
+
+        <main class="main">
+
+
+            <!-- DASHBOARD PAGE -->
+            <section class="page active" id="dashboard">
+
+                <header class="topbar">
+                    <div>
+                        <p class="eyebrow">SECURITY OPERATIONS CENTER</p>
+                        <h1>Dashboard Overview</h1>
+                        <p class="muted">Monitor your digital security and community threat reports.</p>
+                    </div>
+                    <div class="status"><span></span> System Active</div>
+                </header>
+
+                <!-- STATISTICS -->
+                <div class="stats">
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>Phone Reports</span>
+                            <span class="stat-icon">☎</span>
+                        </div>
+                        <h2 id="phone-report-count">—</h2>
+                        <small>Community reports submitted</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>Phone Checks</span>
+                            <span class="stat-icon">⌕</span>
+                        </div>
+                        <h2 id="phone-check-count">—</h2>
+                        <small>Numbers searched</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>URLs Scanned</span>
+                            <span class="stat-icon">↗</span>
+                        </div>
+                        <h2 id="url-scan-count">—</h2>
+                        <small>Website addresses analysed</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>URLs Reported</span>
+                            <span class="stat-icon">⚠</span>
+                        </div>
+                        <h2 id="url-report-count">—</h2>
+                        <small>Community URL reports</small>
+                    </article>
+
+                </div>
+
+                <!-- WELCOME BANNER -->
+                <section class="welcome dashboard-welcome">
+                    <div>
+                        <p class="eyebrow">SCAMSHIELD AI PROTECTION</p>
+                        <h2>Think before you click.</h2>
+                        <p>Stay alert. Detect suspicious numbers and phishing links.</p>
+                    </div>
+                    <div class="shield">🛡️</div>
+                </section>
+
+                <!-- THREAT OVERVIEW -->
+                <div class="dashboard-grid">
+
+                    <article class="stat-card threat-card">
+                        <p class="eyebrow">PHONE INTELLIGENCE</p>
+                        <h2>Most Reported Number</h2>
+                        <div class="threat-value" id="top-phone-number">—</div>
+                        <small id="top-phone-count">No data available yet</small>
+                    </article>
+
+                    <article class="stat-card threat-card">
+                        <p class="eyebrow">URL INTELLIGENCE</p>
+                        <h2>Most Reported URL</h2>
+                        <div class="threat-value" id="top-reported-url">—</div>
+                        <small id="top-url-count">No data available yet</small>
+                    </article>
+
+                </div>
+
+                <!-- ACTIVITY OVERVIEW -->
+                <section class="report-section activity-section">
+                    <div class="report-heading">
+                        <p class="eyebrow">SYSTEM MONITORING</p>
+                        <h2>Recent Activity</h2>
+                        <p class="muted">Latest actions recorded by ScamShield AI.</p>
+                    </div>
+
+                    <div id="recent-activity">
+                        <p class="muted">Activity will appear here.</p>
+                    </div>
+                </section>
+
+                <!-- QUICK ACTIONS -->
+                <section class="quick-actions">
+                    <h2>Quick Actions</h2>
+
+                    <div class="quick-action-grid">
+                        <button type="button" class="quick-btn"
+                            onclick="document.querySelector('[data-page=phone-checker]').click()">
+                            ☎ Check Phone Number →
+                        </button>
+
+                        <button type="button" class="quick-btn"
+                            onclick="document.querySelector('[data-page=url-scanner]').click()">
+                            ↗ Scan a URL →
+                        </button>
+                    </div>
+                </section>
+
+            </section>
+
+
+
+            <!-- PHONE CHECKER PAGE -->
+            <section class="page" id="phone-checker">
+                <header class="topbar">
+                    <div>
+                        <p class="eyebrow">COMMUNITY INTELLIGENCE</p>
+                        <h1>Phone Number Checker</h1>
+                        <p class="muted">Check whether a phone number has community reports.</p>
+                    </div>
+                </header>
+
+                <article class="tool-card">
+                    <div class="tool-icon">☎</div>
+                    <h2>Search Phone Number</h2>
+                    <p class="muted">Enter a suspicious phone number to check available reports.</p>
+
+                    <form id="phone-form">
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" placeholder="Enter phone number" required>
+                        <button type="submit">Check Number →</button>
+                    </form>
+
+                    <div class="result" id="phone-result" aria-live="polite"></div>
+                </article>
+            </section>
+
+
+            <!-- URL SCANNER PAGE -->
+            <section class="page" id="url-scanner">
+                <header class="topbar">
+                    <div>
+                        <p class="eyebrow">MACHINE LEARNING ANALYSIS</p>
+                        <h1>Phishing URL Scanner</h1>
+                        <p class="muted">Analyse suspicious website addresses.</p>
+                    </div>
+                </header>
+
+                <article class="tool-card">
+                    <div class="tool-icon">↗</div>
+                    <h2>Scan Website URL</h2>
+                    <p class="muted">Submit a URL for experimental ML-based classification.</p>
+
+                    <form id="url-form">
+                        <label for="url-input">Website URL</label>
+                        <input id="url-input" name="url" type="url" placeholder="https://example.com" required>
+                        <button type="submit">Scan URL →</button>
+                    </form>
+
+                    <div class="result" id="url-result" aria-live="polite"></div>
+                    <p class="muted">Experimental predictions are not guaranteed security verdicts.</p>
+                </article>
+            </section>
+
+
+            <!-- REPORTS PAGE -->
+            <section class="page" id="reports">
+                <header class="topbar">
+                    <div>
+                        <p class="eyebrow">COMMUNITY CONTRIBUTION</p>
+                        <h1>Scam Reports</h1>
+                        <p class="muted">Submit suspicious activity and review community reports.</p>
+                    </div>
+                </header>
+
+                <section class="report-section">
+                    <div class="report-heading">
+                        <p class="eyebrow">PHONE NUMBER REPORTING</p>
+                        <h2>Report a Suspected Scam</h2>
+                        <p class="muted">Share your experience to help others stay alert.</p>
+                    </div>
+
+                    <form id="report-form">
+                        <label for="report-phone">Phone Number Involved</label>
+                        <input type="tel" id="report-phone" placeholder="Enter suspicious phone number" required>
+
+                        <label for="scam-category">Scam Category</label>
+                        <select id="scam-category" required>
+                            <option value="">Select a category</option>
+                            <option value="Banking fraud">Banking fraud</option>
+                            <option value="Fake customer support">Fake customer support</option>
+                            <option value="Lottery or prize scam">Lottery or prize scam</option>
+                            <option value="Job scam">Job scam</option>
+                            <option value="Impersonation">Impersonation</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label for="report-details">What Happened?</label>
+                        <textarea id="report-details" rows="4" placeholder="Describe the suspicious call or message..."
+                            required minlength="20"></textarea>
+
+                        <button type="submit">Submit Scam Report</button>
+                        <p id="report-result" class="result" aria-live="polite"></p>
+
+                        <p class="muted">
+                            Do not include passwords, bank details or other sensitive information.
+                        </p>
+                    </form>
+                </section>
+                <!-- URL REPORTING -->
+                <section class="report-section">
+                    <div class="report-heading">
+                        <p class="eyebrow">URL REPORTING</p>
+                        <h2>Report a Suspicious Website</h2>
+                        <p class="muted">
+                            Report a suspected phishing or fraudulent website.
+                        </p>
+                    </div>
+
+                    <form id="url-report-form">
+                        <label for="report-url">Website URL</label>
+                        <input type="url" id="report-url" placeholder="https://example.com" required>
+
+                        <label for="url-scam-category">Scam Category</label>
+                        <select id="url-scam-category" required>
+                            <option value="">Select a category</option>
+                            <option value="Phishing">Phishing</option>
+                            <option value="Fake shopping website">Fake shopping website</option>
+                            <option value="Malware">Malware</option>
+                            <option value="Impersonation">Impersonation</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label for="url-report-details">What Happened?</label>
+                        <textarea id="url-report-details" rows="4"
+                            placeholder="Explain why you suspect this website is fraudulent..." required
+                            minlength="20"></textarea>
+
+                        <button type="submit">Submit URL Report</button>
+
+                        <p id="url-report-result" class="result" aria-live="polite"></p>
+                    </form>
+                </section>
+                <section class="report-section">
+                    <div class="report-heading">
+                        <p class="eyebrow">DATABASE RECORDS</p>
+                        <h2>Community Reports</h2>
+                        <p class="muted">User-submitted reports. These are not independently verified.</p>
+                    </div>
+
+                    <div id="community-report-list">
+                        <p class="muted">Loading reports...</p>
+                    </div>
+                </section>
+            </section>
+
+
+            <footer>
+                <span>ScamShield AI · Student Project</span>
+                <span>Reports and predictions require verification.</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
