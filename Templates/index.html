@@ -21,6 +21,11 @@
             <a class="nav" href="#phone-checker" data-page="phone-checker">☎ Phone Checker</a>
             <a class="nav" href="#url-scanner" data-page="url-scanner">↗ URL Scanner</a>
             <a class="nav" href="#reports" data-page="reports">▤ Reports</a>
+            <a class="nav" href="#rescue" data-page="rescue">✚ RESCUE</a>
+            <a class="nav" href="#evidence" data-page="evidence">▣ Evidence Locker</a>
+            <a class="nav" href="#notifications" data-page="notifications">♢ Notifications</a>
+            <a class="nav" href="#profile" data-page="profile">◎ My Profile</a>
+            <a class="nav" href="#settings" data-page="settings">⚙ Settings</a>
 
             <div class="sidebar-bottom">
                 AI-Powered Multi-Modal<br>
@@ -291,6 +296,59 @@
                 </section>
             </section>
 
+
+            <!-- RESCUE PAGE: interface placeholder until the recovery workflow is implemented -->
+            <section class="page" id="rescue">
+                <header class="topbar"><div><p class="eyebrow">INCIDENT RESPONSE</p><h1>RESCUE</h1><p class="muted">Recovery and Evidence System for Cyber-fraud Urgent Events.</p></div></header>
+                <section class="report-section">
+                    <h2>Scam recovery assistance</h2>
+                    <p class="muted">This module is planned. It will help organise incident details, evidence and next steps. It is not yet connected to official reporting services.</p>
+                    <p><strong>If money has just been lost:</strong> contact your bank or payment provider immediately. In India, call 1930 and report at <a href="https://www.cybercrime.gov.in/" target="_blank" rel="noopener">cybercrime.gov.in</a>.</p>
+                    <p class="muted">Never share an OTP, PIN, password or full card details with anyone offering recovery help.</p>
+                </section>
+            </section>
+
+            <!-- EVIDENCE LOCKER PAGE: placeholder; no file upload/storage backend yet -->
+            <section class="page" id="evidence">
+                <header class="topbar"><div><p class="eyebrow">INCIDENT DOCUMENTATION</p><h1>Evidence Locker</h1><p class="muted">Keep track of evidence related to a suspected scam.</p></div></header>
+                <section class="report-section">
+                    <h2>Evidence storage</h2>
+                    <p class="muted">Secure evidence upload and storage are not implemented yet. For this demo, keep original screenshots, messages and transaction references safely on your own device. Do not upload passwords, OTPs, PINs or complete banking credentials.</p>
+                </section>
+            </section>
+
+            <!-- NOTIFICATIONS PAGE: no notification service currently connected -->
+            <section class="page" id="notifications">
+                <header class="topbar"><div><p class="eyebrow">UPDATES</p><h1>Notifications</h1><p class="muted">System and community activity updates.</p></div></header>
+                <section class="report-section"><p class="muted">There are no in-app notifications yet. This page is ready for a future notification system.</p></section>
+            </section>
+
+            <!-- PROFILE PAGE: display-only until authentication is implemented -->
+            <section class="page" id="profile">
+                <header class="topbar"><div><p class="eyebrow">ACCOUNT</p><h1>My Profile</h1><p class="muted">Basic project-session information.</p></div></header>
+                <section class="report-section">
+                    <h2>Guest session</h2>
+                    <p class="muted">You are currently using ScamShield AI without an account. Login, registration and account management are not implemented in this version.</p>
+                </section>
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section class="page" id="settings">
+                <header class="topbar"><div><p class="eyebrow">PREFERENCES</p><h1>Settings</h1><p class="muted">Customise the appearance of your dashboard.</p></div></header>
+                <section class="report-section settings-panel">
+                    <h2>Appearance</h2>
+                    <p class="muted">Choose the theme used by this browser.</p>
+                    <div class="setting-row"><div><strong>Dark / Light mode</strong><p class="muted">Your choice is saved in this browser.</p></div><button type="button" id="theme-toggle" class="setting-button">Switch to light mode</button></div>
+                </section>
+                <section class="report-section">
+                    <h2>Account and security</h2>
+                    <p class="muted">Login, password changes and logout controls will be available after a secure authentication system is added.</p>
+                </section>
+                <section class="report-section">
+                    <h2>Notifications</h2>
+                    <p class="muted">Email and push notification preferences are not available yet because no notification service is connected.</p>
+                </section>
+            </section>
 
             <footer>
                 <span>ScamShield AI · Student Project</span>
